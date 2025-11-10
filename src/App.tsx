@@ -2,10 +2,26 @@ import React, { useState } from 'react';
 import { Phone, Mail, Globe } from 'lucide-react';
 import './App.css';
 
+
 type Tab = 'screening' | 'partnership';
 
 const PulsePointLanding: React.FC = () => {
   const [activeTab, setActiveTab] = useState<Tab>('screening');
+  const [showScheduleModal, setShowScheduleModal] = useState(false);
+  const [showPartnerModal, setShowPartnerModal] = useState(false);
+
+  const handleScheduleClick = () => {
+    setShowScheduleModal(true);
+  };
+
+  const handlePartnerClick = () => {
+    setShowPartnerModal(true);
+  };
+
+  const closeModals = () => {
+    setShowScheduleModal(false);
+    setShowPartnerModal(false);
+  };
 
   return (
     <div className="min-h-screen section-light">
@@ -14,6 +30,13 @@ const PulsePointLanding: React.FC = () => {
         <div className="hero-overlay"></div>
         <div className="hero-content">
           <div className="hero-text">
+            <div className="logo-container">
+              <img 
+                src="LOGO.png" 
+                alt="PulsePoint Diagnostics Logo" 
+                className="hero-logo"
+              />
+            </div>
             <h1 className="hero-title">
               Early Detection.
               <span className="text-gradient">
@@ -25,17 +48,17 @@ const PulsePointLanding: React.FC = () => {
               help detect Peripheral Artery Disease (PAD) before it becomes life-threatening.
             </p>
             <div className="hero-buttons">
-              <button className="button-primary">
-                <span className="button-emoji"></span>
+              <button className="button-primary" onClick={handleScheduleClick}>
+                <span className="button-emoji">📅</span>
                 Schedule a Screening
               </button>
-              <button className="button-secondary">
-                <span className="button-emoji"></span>
+              <button className="button-secondary" onClick={handlePartnerClick}>
+                <span className="button-emoji">🤝</span>
                 Partner With Us
               </button>
             </div>
             <div className="hero-phone">
-              <span className="phone-emoji"></span>
+              <span className="phone-emoji">📞</span>
               <span className="phone-text">Call 833-STOPPAD</span>
             </div>
           </div>
@@ -48,7 +71,6 @@ const PulsePointLanding: React.FC = () => {
         <div className="container">
           <div className="stats-content">
             <div className="stats-badge">
-              
               Critical Health Statistics
             </div>
             <h2 className="stats-title">
@@ -139,25 +161,21 @@ const PulsePointLanding: React.FC = () => {
           
           <div className="features-grid">
             <div className="feature-card">
-       
               <h3 className="feature-title">Convenient</h3>
               <p className="feature-desc">We come to you — no extra staff or equipment needed.</p>
             </div>
             
             <div className="feature-card">
-             
               <h3 className="feature-title">Accurate</h3>
               <p className="feature-desc">Simple ABI testing detects PAD early.</p>
             </div>
             
             <div className="feature-card">
- 
               <h3 className="feature-title">Affordable</h3>
               <p className="feature-desc">Covered by most insurance (CPT 93922).</p>
             </div>
             
             <div className="feature-card">
-        
               <h3 className="feature-title">Community-Focused</h3>
               <p className="feature-desc">In-kind screenings available for high-risk groups.</p>
             </div>
@@ -216,31 +234,26 @@ const PulsePointLanding: React.FC = () => {
           {activeTab === 'partnership' && (
             <div className="benefits-grid">
               <div className="benefit-card">
-                
                 <h3 className="benefit-title">Revenue-Generating</h3>
                 <p className="benefit-desc">ABI screening is billable (CPT 93922), creating a new income stream.</p>
               </div>
               
               <div className="benefit-card">
-                
                 <h3 className="benefit-title">Community Impact</h3>
                 <p className="benefit-desc">Offer life-saving services at no extra burden to your staff.</p>
               </div>
               
               <div className="benefit-card">
-                
                 <h3 className="benefit-title">Easy Integration</h3>
                 <p className="benefit-desc">We bring the equipment, staff, and reporting—minimal disruption to your workflow.</p>
               </div>
               
               <div className="benefit-card">
-                
                 <h3 className="benefit-title">Health Equity</h3>
                 <p className="benefit-desc">Support underserved populations through in-kind screenings.</p>
               </div>
               
               <div className="benefit-card">
-                
                 <h3 className="benefit-title">Reputation Boost</h3>
                 <p className="benefit-desc">Demonstrate leadership in preventive care and whole-person wellness.</p>
               </div>
@@ -266,15 +279,11 @@ const PulsePointLanding: React.FC = () => {
             </div>
             <div className="contact-item">
               <Mail className="contact-icon" size={24} />
-              <span className="contact-text">[Your Email]</span>
-            </div>
-            <div className="contact-item">
-              <Globe className="contact-icon" size={24} />
-              <span className="contact-text">[Your Website]</span>
+              <span className="contact-text">info@pulsepointdiagnostics.com</span>
             </div>
           </div>
           
-          <button className="cta-button">
+          <button className="cta-button" onClick={handlePartnerClick}>
             Schedule a Partnership Call →
           </button>
         </div>
@@ -292,18 +301,84 @@ const PulsePointLanding: React.FC = () => {
             <div className="footer-contact">
               <div className="footer-contact-item">
                 <Phone size={16} />
-                <span>(313) 370-8746</span>
+                <span>833-786-7723</span>
               </div>
               <div className="footer-contact-item">
                 <Mail size={16} />
-                <span>[Your Email]</span>
+                <span>info@pulsepointdiagnostics.com</span>
               </div>
             </div>
             
-            <p className="footer-copyright">© 2025 PulsePoint Diagnostics. All rights reserved.</p>
+            <p className="footer-copyright">© 2025 PulsePoint Diagnostics. All rights reserved. Pulse Point Diagnostics does not bill insurance companies.</p>
           </div>
         </div>
       </footer>
+
+      {/* Schedule Modal */}
+      {showScheduleModal && (
+        <div className="modal-overlay" onClick={closeModals}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={closeModals}>×</button>
+            <h2 className="modal-title">Schedule a Screening</h2>
+            <p className="modal-subtitle">Contact us to schedule a mobile ABI screening at your facility</p>
+            
+            <div className="modal-contact-info">
+              <div className="modal-contact-item">
+                <Phone className="modal-icon" size={24} />
+                <div>
+                  <div className="modal-label">Call Us</div>
+                  <a href="tel:833-786-7723" className="modal-link">833-STOPPAD</a>
+                </div>
+              </div>
+              
+              <div className="modal-contact-item">
+                <Mail className="modal-icon" size={24} />
+                <div>
+                  <div className="modal-label">Email Us</div>
+                  <a href="mailto:info@pulsepointdiagnostics.com" className="modal-link">info@pulsepointdiagnostics.com</a>
+                </div>
+              </div>
+            </div>
+            
+            <div className="modal-info">
+              <p>Our team typically responds within 24 hours to schedule your screening event.</p>
+            </div>
+          </div>
+        </div>
+      )}
+
+      {/* Partner Modal */}
+      {showPartnerModal && (
+        <div className="modal-overlay" onClick={closeModals}>
+          <div className="modal-content" onClick={(e) => e.stopPropagation()}>
+            <button className="modal-close" onClick={closeModals}>×</button>
+            <h2 className="modal-title">Partner With Us</h2>
+            <p className="modal-subtitle">Learn how we can bring preventive vascular care to your community</p>
+            
+            <div className="modal-contact-info">
+              <div className="modal-contact-item">
+                <Phone className="modal-icon" size={24} />
+                <div>
+                  <div className="modal-label">Call Us</div>
+                  <a href="tel:833-786-7723" className="modal-link">833-STOPPAD</a>
+                </div>
+              </div>
+              
+              <div className="modal-contact-item">
+                <Mail className="modal-icon" size={24} />
+                <div>
+                  <div className="modal-label">Email Us</div>
+                  <a href="mailto:partnerships@pulsepointdiagnostics.com" className="modal-link">partnerships@pulsepointdiagnostics.com</a>
+                </div>
+              </div>
+            </div>
+            
+            <div className="modal-info">
+              <p>We'll discuss partnership opportunities, revenue sharing, and how we can support your community health goals.</p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
