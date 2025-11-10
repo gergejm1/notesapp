@@ -49,18 +49,15 @@ const PulsePointLanding: React.FC = () => {
             </p>
             <div className="hero-buttons">
               <button className="button-primary" onClick={handleScheduleClick}>
-                <span className="button-emoji">📅</span>
+                
                 Schedule a Screening
               </button>
               <button className="button-secondary" onClick={handlePartnerClick}>
-                <span className="button-emoji">🤝</span>
+                
                 Partner With Us
               </button>
             </div>
-            <div className="hero-phone">
-              <span className="phone-emoji">📞</span>
-              <span className="phone-text">Call 833-STOPPAD</span>
-            </div>
+
           </div>
         </div>
         <div className="hero-gradient-bottom"></div>
