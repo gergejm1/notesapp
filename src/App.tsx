@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Phone, Mail, Globe } from 'lucide-react';
+import { Phone, Mail } from 'lucide-react';
 import './App.css';
 
 
