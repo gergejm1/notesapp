@@ -32,7 +32,7 @@ const PulsePointLanding: React.FC = () => {
           <div className="hero-text">
             <div className="logo-container">
               <img 
-                src="LOGO.png" 
+                src="/LOGO.png" 
                 alt="PulsePoint Diagnostics Logo" 
                 className="hero-logo"
               />
