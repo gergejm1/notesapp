@@ -276,7 +276,7 @@ const PulsePointLanding: React.FC = () => {
             </div>
             <div className="contact-item">
               <Mail className="contact-icon" size={24} />
-              <span className="contact-text">info@pulsepointdiagnostics.com</span>
+              <span className="contact-text">kent@pulsepointdiagnostics.com</span>
             </div>
           </div>
           
@@ -302,7 +302,7 @@ const PulsePointLanding: React.FC = () => {
               </div>
               <div className="footer-contact-item">
                 <Mail size={16} />
-                <span>info@pulsepointdiagnostics.com</span>
+                <span>kent@pulsepointdiagnostics.com</span>
               </div>
             </div>
             
@@ -332,7 +332,7 @@ const PulsePointLanding: React.FC = () => {
                 <Mail className="modal-icon" size={24} />
                 <div>
                   <div className="modal-label">Email Us</div>
-                  <a href="mailto:info@pulsepointdiagnostics.com" className="modal-link">info@pulsepointdiagnostics.com</a>
+                  <a href="mailto:kent@pulsepointdiagnostics.com" className="modal-link">kent@pulsepointdiagnostics.com</a>
                 </div>
               </div>
             </div>
