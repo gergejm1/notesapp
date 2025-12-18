@@ -365,7 +365,7 @@ const PulsePointLanding: React.FC = () => {
                 <Mail className="modal-icon" size={24} />
                 <div>
                   <div className="modal-label">Email Us</div>
-                  <a href="mailto:partnerships@pulsepointdiagnostics.com" className="modal-link">partnerships@pulsepointdiagnostics.com</a>
+                  <a href="mailto:kent@pulsepointdiagnostics.com" className="modal-link">kent@pulsepointdiagnostics.com</a>
                 </div>
               </div>
             </div>
